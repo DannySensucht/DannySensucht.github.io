@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<http>
+
+
+<head>
+	<title>
+	
+		TAM NOTES Danny
+		
+	</title>
+  
+	
+	<link rel="shortcut icon" href="C:\Users\dhernandez\Pictures\TAM_Logo_Peq.png" />
+
+	<link rel="canonical" href="https://tubosyacerosmaquinados.com/" />
+	
+
+
+<style>
+    .bold-textarea {
+        font-weight: bold;
+    }
+    .italic-textarea {
+        font-style: italic;
+    }
+      .color-textarea {
+        color: red;
+    }
+    .fonte-textarea {
+        font-family: Bradley Hand ITC;
+    }
+      .zise-textarea {
+        font-size: 16px;
+    }
+
+
+
+
+
+</style>
+
+
+
+</head> 
+
+	
+	
+	<body bgcolor="black">
+	  
+	  
+	  <marquee><a href="https://tubosyacerosmaquinados.com/"> <img src = "C:\Users\dhernandez\Pictures\TAM_Logo.png" height="80px" width="200px"></marquee>
+	  <br>
+	  
+	  
+	 <Font color="red">
+	  
+	<center><H1>NOTAS TAM:</h1></center>
+	
+	</font>
+	
+	<Font color="white">
+	  
+	  Daniel Alberto Hernandez Flores
+	  
+	  </font>
+	
+	<Font color="yellow">
+	
+	<hr color="withe">
+	 
+	 <br>
+	
+	 
+	 <H3>Ruta de Formatos</H3>
+	 
+	 <br>
+	 
+	 
+	 Z:\0 Información documentada\ISO SGC TAM\54 Procesos\1 Procesos TAM\2 RH\1. Capacitación y Adiestramiento
+	 
+	 
+	 <br>
+	 <br>
+	 
+	 <h3>IP de la Nueva Razón Social es:</h3>
+	 
+	 </font>
+	 
+	 <Font color="silver">
+	   192.168.1.31:1805
+	 </font>
+	 
+	 <br>
+	 <br>
+	
+	
+	<Font color="yellow">
+	
+	<br>
+	  
+	PR = Safety Stock  (Reporte Catalogo PT) <br><br>
+
+Kepler - PRODUCCIÓN - CTL DE PROD - *Consulta Partes a Proceso (para validar folios de MP de cada orden)<br><br>
+
+Kepler - PRODUCCIÓN - CTL DE PROD - *Termina Operación** (para validar la orden y la Qty de materia Prima entregada / Usada	
+
+<br>
+<br>
+
+<H3>Para validar ventanas de plan / Cliente</H3>
+
+<b>ZF: </b>Se valida ventana a 4 semanas de plan
+<br>
+<b>T+H: </b>Se valida ventana a 4 días
+<br>
+<b>JOHN DEERE, REGAL y MEGA: </b>Se valida ventana a 2 meses
+
+<br>
+<br>
+
+
+<H3>Tipos Almacén:</H3>
+
+</font>
+
+<font color="gold">
+<ol>
+	<li>MP</li>
+	<li>PT</li>
+	<li>Insp</li>
+	<li>Ref y cons</li>
+	<li>Ext</li>
+	<li>Rec PT</li>
+	<li>Prod</li>
+	<li>Qtna</li>
+	<li>MP Maq</li>
+	<li>MP Muestras</li>
+	<li>PT Muestras</li>
+	<li>MP Qtna</li>
+	<li>Hrrmts Pro Ext</li>
+	<li>Prototyps</li>
+	<li>Wh MP WIP</li>
+	<li>Cons Ind</li>
+	<li>Equip Med</li>
+	<li>Mntto Y SP</li>
+</ol>
+
+	</font>
+	
+<br>
+
+<font color="gold">
+
+    Almacén 2 - PT: En este almacén es cuando ya pasó por todos los proceso, icluyendo Ext
+	<br>
+	Almacén 3 - Insp: Es cuando llega de Ext, o de Producción
+	<br>
+	Almacén 5 - Ext: El inv aquí, es cuando está en proceso Ext, y es <b>-B</b>, y <b>A</b>, cuando está aquí pendiente de Ext
+	
+</font>
+	  
+
+<font color="yellow">
+
+<H3>Éstos son las fórmulas para la pestaña del plan </H3>
+
+Nivel InvPT-MP vs Pedidos
+
+<br>
+<br>
+
+	SI.CONJUNTO(SUMA(CB12:CC12)=0,"Sin Pedidos"&" y en PT hay: "&Tabla19[@[∑ Inv PT]],(Tabla19[@[∑ Inv PT]]>=SUMA(CB12:CC12)),"Si cubre Semana "&$CB$11&" "&"&"&" "&$CC$11,Tabla19[@[∑ Inv PT]]<SUMA(CB12:CC12),"No Se cubre Semana "&$CB$11&" "&"&"&" "&$CC$11&" / Faltan: "&SUMA(CB12:CC12)-BM12&" Pzas"&" Y Planeadas hay: "&Tabla19[@[Cantidad Planeada]]&" , Inv PT "&Tabla19[@[∑ Inv PT]])
+<br>
+<br>	
+<br>	
+<br>
+
+	
+	SI.CONJUNTO(SUMA(CD12:CG12)=0,"Sin Pedidos"&" y en PT hay: "&Tabla19[@[∑ Inv PT]],(Tabla19[@[∑ Inv PT]]-SUMA(CB12:CC12)>=SUMA(CD12:CG12)),"Si cubre Semana "&$CD$11&", "&" "&$CE$11&", "&$CF$11&" & "&$CG$11&", ",Tabla19[@[∑ Inv PT]]-SUMA(CB12:CC12)<SUMA(CD12:CG12),"No Se cubre Semana "&$CD$11&" "&", "&" "&$CE$11&", "&$CF$11&" & "&$CG$11&", " &" / Faltan: "&SUMA(CB12:CG12)-BM12&" Pzas"&" Y Planeadas hay: "&Tabla19[@[Cantidad Planeada]])
+<br>	
+<br>
+<br>	
+<br>
+
+	SI.CONJUNTO(SUMA(CH12:CK12)=0,"Sin Pedidos"&" y en PT hay: "&Tabla19[@[∑ Inv PT]],(Tabla19[@[∑ Inv PT]]-SUMA(CB12:CG12)>=SUMA(CH12:CK12)),"Si cubre Semana "&$CH$11&" "&","&" "&$CI$11&", "&$CJ$11&" & "&$CK$11&", ",Tabla19[@[∑ Inv PT]]-SUMA(CB12:CG12)<SUMA(CH12:CK12),"No Se cubre Semana "&$CH$11&","&" "&$CI$11&", "&$CJ$11&" & "&$CK$11&", " &" / Faltan: "&SUMA(CB12:CK12)-BM12&" Pzas"&" Y Planeadas hay: "&Tabla19[@[Cantidad Planeada]])
+	
+<br>	
+<br>
+
+<H3>Ruta recibos SIFIJA (Mony)</H3>
+
+
+<h3><a href="Z:\6 Planeación\Recibo de proceso externo\SIFIJA\2024">Documentos SIFIJA</a></h3>
+
+
+<H3>Ruta 5's SGC</H3>
+
+<a href="Z:\12 SGC\1 Auditorias Continuas\Registros\6 Registro 5s\2024">Ruta 5S's</a>
+
+
+<H3>Instructivos</H3>
+
+<a href="Z:\0 Información documentada\ISO SGC TAM\54 Procesos\1 Procesos TAM\6 Planeacion">Instructivos</a>
+
+
+<H3>Ruta exámenes</H3>
+<a href="Z:\0 Información documentada\ISO SGC TAM\54 Procesos\1 Procesos TAM\2 RH\1. Capacitación y Adiestramiento\Capacitaciones">Ruta Examenes</a>
+
+</font>
+
+<br>
+<br>	
+
+
+<font color="cyan">
+
+<h2>SEGUIMIENTOS DIARIOS</h2>
+
+</font>
+
+<font color="white">
+
+<font color="green">1.</font> <input type="checkbox">	Productos pendientes a embarcar<br><br>  
+<font color="black">.............</font><textarea id="miTextarea" name="textarea" rows="7" cols="60"  style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic()"><b><i>.</i></b></button><br><br>
+
+<font color="green">2.</font> <input type="checkbox">	Productos pendientes de envió a procesos externos<br><br>
+<font color="black">.............</font><textarea id="miTextarea2" name="textarea" rows="5" cols="50" style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic2()"><b><i>.</i></b></button><br><br>
+
+<font color="green">3.</font> <input type="checkbox">	Productos pendientes de recibo para procesos externos<br><br>
+<font color="black">.............</font><textarea id="miTextarea3" name="textarea" rows="5" cols="50" style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic3()"><b><i>.</i></b></button><br><br>
+
+<font color="green">4.</font> <input type="checkbox">	Entregas de producto terminado<br><br>
+<font color="black">.............</font><textarea id="miTextarea4" name="textarea" rows="5" cols="50" style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic4()"><b><i>.</i></b></button><br><br>
+
+<font color="green">5.</font> <input type="checkbox">	Conteos y abastecimientos de materiales a producción<br><br>
+<font color="black">.............</font><textarea id="miTextarea5" name="textarea" rows="5" cols="50" style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic5()"><b><i>.</i></b></button><br><br>
+
+<font color="green">6.</font> <input type="checkbox">	Pendientes en los procesos de mesa de control<br><br>
+<font color="black">.............</font><textarea id="miTextarea6" name="textarea" rows="5" cols="50" style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic6()"><b><i>.</i></b></button><br><br>
+
+<font color="green">7.</font> <input type="checkbox">	Acomodo del inventario de WIP (programar un materialista responsable por semana de dicha actividad)<br><br>
+<font color="black">.............</font><textarea id="miTextarea7" name="textarea" rows="5" cols="50" style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic7()"><b><i>.</i></b></button><br><br>
+
+<font color="green">8.</font> <input type="checkbox">	Revisión y corrección en tiempo y forma de las capturas de mesa de control<br><br>
+<font color="black">.............</font><textarea id="miTextarea8" name="textarea" rows="5" cols="50" style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic8()"><b><i>.</i></b></button><br><br>
+
+<font color="green">9.</font> <input type="checkbox">	Ordenes de producción activas, en proceso e inactivas<br><br>
+<font color="black">.............</font><textarea id="miTextarea9" name="textarea" rows="5" cols="50" style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic9()"><b><i>.</i></b></button><br><br>
+
+<font color="green">10.</font> <input type="checkbox">	Seguimiento puntual al día con el programa de producción (revisión diaria con el jefe de Producción) "Visualizar estrategias en caso de presentar afectaciones o atrasos en el PMP"
+<br>
+<br>
+<font color="black">.............</font><textarea id="miTextarea10" name="textarea" rows="5" cols="50" style="background-color: black;"></textarea>&nbsp;&nbsp;<button onclick="toggleBoldItalic10()"><b><i>.</i></b></button><br><br>
+
+
+</font>
+
+
+<br>
+<br>	
+<br>
+<br>	
+
+</font>
+  
+<script>
+
+
+function toggleBoldItalic() {
+    var textarea = document.getElementById('miTextarea');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+    textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');
+}
+
+function toggleBoldItalic2() {
+    var textarea = document.getElementById('miTextarea2');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+ textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');
+}
+
+function toggleBoldItalic3() {
+    var textarea = document.getElementById('miTextarea3');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+ textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');
+}
+
+function toggleBoldItalic4() {
+    var textarea = document.getElementById('miTextarea4');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+ textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');
+}
+
+function toggleBoldItalic5() {
+    var textarea = document.getElementById('miTextarea5');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+ textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');
+}
+
+function toggleBoldItalic6() {
+    var textarea = document.getElementById('miTextarea6');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+ textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');
+}
+
+function toggleBoldItalic7() {
+    var textarea = document.getElementById('miTextarea7');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+ textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');
+}
+
+function toggleBoldItalic8() {
+    var textarea = document.getElementById('miTextarea8');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+ textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');
+}
+
+function toggleBoldItalic9() {
+    var textarea = document.getElementById('miTextarea9');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+ textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');
+}
+
+function toggleBoldItalic10() {
+    var textarea = document.getElementById('miTextarea10');
+    textarea.classList.toggle('bold-textarea');
+    textarea.classList.toggle('italic-textarea');
+ textarea.classList.toggle('color-textarea');
+textarea.classList.toggle('zise-textarea');
+textarea.classList.toggle('fonte-textarea');	
+}
+
+</script>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	</body>
+
+</http>
+
+</html>
